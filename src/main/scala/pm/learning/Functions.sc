@@ -17,10 +17,12 @@ def safeTrim(string: String): String = {
   string.trim; // The last line is the return value
 }
 
-def aProcedure = print("A procedure is a function that doesn't return anything")
+def aProcedure: Unit = print("A procedure is a function that doesn't return anything")
 aProcedure
-// Parameters
-println("Parameters")
+
+"Parameters"
+"----------"
+
 def functionWithParameter(message1: String) = {
   "message is: " + message1
 }
@@ -49,19 +51,21 @@ def identity[A](a: A): A = a
 identity("a string parameter")
 identity(12)
 
-// Recursion
-println("Recursion")
+"Recursion"
+"---------"
+
 def factorial(number: Int, total: Int): Int = {
   if (number > 1) {
-    return factorial(number - 1, total * number)
+    factorial(number - 1, total * number)
   }
   else total
 }
 factorial(3, 1)
+
 @annotation.tailrec
 def factorialWithTailRecursion(number: Int, total: Int): Int = {
   if (number > 1) {
-    return factorialWithTailRecursion(number - 1, total * number)
+    factorialWithTailRecursion(number - 1, total * number)
   }
   else total
 }
@@ -74,8 +78,11 @@ def power(x: Int, n: Int): Long = {
   if (n < 1) 1
   else x * power(x, n - 1)
 }
-// Nested functions
-println("Nested functions")
+
+
+"Nested functions"
+"----------------"
+
 def outerFunction() = {
   def innerFunction(x: Int): Int = {x + 2}
   println("Result from inner function = " + innerFunction(3))

@@ -1,13 +1,20 @@
+// See Learning Scala ch 3
+
 // Flow control
 println("Flow control")
+println("============")
+
 // If and expression block
 println("If and expression block")
+println("-----------------------")
 val five = 5
 val eight = 8
 val expressionBlock = {val sum = five + eight; sum + 7}
 val min = if (five < eight) five else eight
-// Match
-println("Match")
+
+// Match - match...case
+println("Match - match...case")
+println("--------------------")
 val max = five > eight match {
   case true => five
   case false => eight
@@ -27,11 +34,13 @@ match {
   case 1 | 3 | 5 | 7 | 9 => "odd"
   case fred => s"don't know what ${fred} is"
 }
-val matchWithPatternGuard = 16 match {
+val matchWithPatternGuard = 17 match {
   case lowerInt if lowerInt % 2 == 0 => "even"
   case lowerInt => "odd"
 }
-// Match with pattern variable, matching type - doesn't work - expecting Int
+
+// Match with pattern variable, matching type
+// - doesn't work - expecting Int
 val aString: String = "123"
 val anInt: Int = 123
 val anAny: Any = 123
