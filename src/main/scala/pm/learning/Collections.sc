@@ -19,6 +19,7 @@ val primaryColours = List("red", "green", "blue")
 val secondaryColours = "yellow" :: "cyan" :: "purple" :: Nil
 val colours = primaryColours ++ secondaryColours
 colours.foreach(colour => println(colour))
+for(c <- colours) yield c.length
 colours.map(colour => colour.length)
 colours.map(_.length)
 val maxLength = colours.map(_.length)
