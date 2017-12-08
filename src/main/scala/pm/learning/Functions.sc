@@ -1,3 +1,5 @@
+import scala.annotation.tailrec
+
 // def <identifier>(<identifier>: <type>[, ... ]): <type> = <expression>
 def inputlessFunction = "Inputless function"
 inputlessFunction
@@ -62,7 +64,7 @@ def factorial(number: Int, total: Int): Int = {
 }
 factorial(3, 1)
 
-@annotation.tailrec
+@tailrec
 def factorialWithTailRecursion(number: Int, total: Int): Int = {
   if (number > 1) {
     factorialWithTailRecursion(number - 1, total * number)

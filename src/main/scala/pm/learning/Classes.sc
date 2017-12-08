@@ -22,6 +22,20 @@ class C(val name: String, val message: String = "You're great!") extends A {
 "From C: " + new C(message = "Well done.", name = "Paul").greet
 "From C: " + new C("Philippa").greet("Yes, really.")
 
+"Class definition with parameters"
+"--------------------------------"
+class Car(val make: String, var reserved: Boolean, val seats: Int) {
+    def reserve(r: Boolean): Unit = { reserved = r }
+}
+val t = new Car("Toyota", false, 5)
+t.reserve(true)
+println(s"My ${t.make} is now reserved? ${t.reserved}")
+
+class Lotus(val color: String, reserved: Boolean, seats: Int) extends Car("Lotus", reserved, seats)
+val l = new Lotus("Silver", false, 2)
+println(s"Requested a ${l.color} ${l.make} with ${l.seats} seats")
+
+
 "Class definition with type parameters"
 "-------------------------------------"
 // Class with type parameter A
@@ -36,7 +50,7 @@ singular foreach println  // The same as the statement above
 "Abstract classes"
 "----------------"
 
-abstract class Car {
+abstract class AbstractCar {
     val year: Int
     def automatic: Boolean // Abstract method
     def colour: String     // Abstract method
@@ -44,7 +58,7 @@ abstract class Car {
     override def toString = s"Car(year=$year, automatic=$automatic, colour=$colour)"
 }
 
-abstract class ManualCar extends Car {
+abstract class ManualCar extends AbstractCar {
     // Implement the abstract automatic method; leave everything else
     def automatic = false
 }

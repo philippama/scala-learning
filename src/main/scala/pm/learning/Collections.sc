@@ -48,3 +48,14 @@ colourMap + ("white" -> 0xFFFFFF)
 var mutableEmptyMap = scala.collection.mutable.Map[String, String]()
 mutableEmptyMap + ("key" -> "value")
 SortedMap("B" -> "Bravo", "A" -> "Alpha", "C" -> "Charlie")
+
+val scoresToLetters = Map(1 -> Seq("A", "E"), 2 -> Seq("D", "G"))
+val oneValues = scoresToLetters(1)
+scoresToLetters.foreach(element => println(s"Element: key=${element._1} value=${element._2}"))
+for(element <- scoresToLetters) yield s"Element: key=${element._1} value=${element._2}"
+for(element <- scoresToLetters) yield element
+val keySet = scoresToLetters.keySet
+val keyIterable = scoresToLetters.keys
+val values = scoresToLetters.values
+val mapList = scoresToLetters.toList
+
