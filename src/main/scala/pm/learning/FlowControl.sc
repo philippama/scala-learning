@@ -39,25 +39,27 @@ val matchWithPatternGuard = 17 match {
   case lowerInt => "odd"
 }
 
-// Match with pattern variable, matching type
-// - doesn't work - expecting Int
-val aString: String = "123"
-val anInt: Int = 123
-val anAny: Any = 123
-val toMatch: Int = 123
-//toMatch match {
-(123: Int) match {
-  case aString => s"${aString} is a String"
-  case anInt => s"${anInt} is an Int"
-  case anAny => s"${anAny} is an Any"
+def whatAmI(mysteryVariable: Any): String = {
+  mysteryVariable match {
+    case null => "I am null."
+    case 57 => "I am Heinz."
+    case x: String => s"I am a String. I am '$x'."
+    case x: Boolean => s"I am a Boolean. I am '$x'."
+    case x: Double => s"I am a Double. I am '$x'."
+    case x: Float => s"I am a Float. I am '$x'."
+    case x: Int => s"I am an Int. I am '$x'."
+    case x: Any => s"I am an Any. I am '$x, ${x.getClass}."
+    case _ => s"I have little self-awareness. I am '$x', ${x.getClass}."
+  }
 }
-// Example from book - expecting 12180i - does work
-val x: Int = 12180
-val y: Any = x
-y match {
-  case x: String => s"'x' is a String"
-  case x: Double => f"$x%.2f is a Double"
-  case x: Float => f"$x%.2f is a Float"
-  case x: Long => s"${x}l is a Long"
-  case x: Int => s"${x}i is an Int"
-}
+whatAmI(null)
+whatAmI("superwoman")
+whatAmI(57)
+whatAmI(563007)
+whatAmI(563007.toDouble)
+whatAmI(true)
+whatAmI(3.1415926)
+whatAmI(3.1415926.toFloat)
+whatAmI(13.toByte)
+val any: Any = "superman"
+whatAmI(any)
