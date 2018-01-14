@@ -48,8 +48,8 @@ def whatAmI(mysteryVariable: Any): String = {
     case x: Double => s"I am a Double. I am '$x'."
     case x: Float => s"I am a Float. I am '$x'."
     case x: Int => s"I am an Int. I am '$x'."
-    case x: Any => s"I am an Any. I am '$x, ${x.getClass}."
-    case _ => s"I have little self-awareness. I am '$x', ${x.getClass}."
+//    case x: Any => s"I am an Any. I am '$x, ${x.getClass}."
+    case x => s"I have little self-awareness. I am '$x', ${x.getClass}."
   }
 }
 whatAmI(null)
