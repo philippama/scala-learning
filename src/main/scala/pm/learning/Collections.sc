@@ -30,6 +30,9 @@ evenSequence.head
 evenSequence.tail
 evenSequence(3)
 
+"An infinite list"
+val elevenFromAnInfiniteStream = (1 to ##).collectFirst({case n => n > 10 }).get
+
 "Collecting a list"
 colours
 val maxLength = colours.map(_.length).max
@@ -85,3 +88,13 @@ def fizzBuzzBang(n: Int): String = {
     .getOrElse(n.toString)
 }
 (1 to 40).map(fizzBuzzBang).mkString(" ")
+
+"--------------------------------"
+" Lazy evaluation of collections "
+"--------------------------------"
+// https://alvinalexander.com/scala/how-to-create-lazy-views-collections-scala-cookbook
+val eager = 1 to 10
+val nowItsLazy = eager.view
+val nowItsEagerAgain = eager.view.force
+
+nowItsLazy.map(_ * 2).force

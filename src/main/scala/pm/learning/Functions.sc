@@ -38,6 +38,7 @@ def functionWithDefaultValue(message1: String = "hello", message2: String): Stri
   "message is: " + message1 + " " + message2
 }
 functionWithDefaultValue(message2 = "could be the default value")
+
 def varArgParameters(words: String*) = {
   var sentence: String = ""
   for (word <- words) {
@@ -46,6 +47,9 @@ def varArgParameters(words: String*) = {
   sentence
 }
 varArgParameters("The", "boy", "stood", "on", "the", "burning", "deck")
+val secondLine = List("whence", "all", "but", "he", "had", "fled")
+varArgParameters(secondLine: _*)
+
 // Also parameter groups
 // Type parameters are like Java generics
 println("Type parameters")

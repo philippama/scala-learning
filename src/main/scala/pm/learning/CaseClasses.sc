@@ -12,7 +12,18 @@ elizabeth == jane
 elizabeth == null
 
 jane match {
-//elizabeth match {
-    case Person("Elizabeth", surname) => s"Eliza $surname"
-    case Person(other, surname) => s"$other $surname"
+  //elizabeth match {
+  case Person("Elizabeth", surname) => s"Eliza $surname"
+  case Person(other, surname) => s"$other $surname"
 }
+
+case class TestClass(description: String, numThings: Int)
+val testClass = TestClass("thing", 0)
+testClass.description
+testClass.numThings
+Seq(
+  TestClass("thing-1", 1),
+  TestClass("thing-2", 2),
+  TestClass("thing-3", 3),
+  TestClass("thing-4", 4)
+)

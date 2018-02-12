@@ -24,6 +24,16 @@ val interpolated: String = s"You owe $$${debt}!"
 val interpolatedAndFormatted = f"You owe $$${debt}%.2f!"
 val words = "one two buckle my shoe".split(" ")
 
+val derivativeId = "derivative-id"
+val registrationDate = "20171225"
+val advertText = "Leather steering wheel, CD sound system"
+val body = s"""{
+                 "derivativeId": $derivativeId,
+                 "registrationDate": $registrationDate,
+                 "advertText": $advertText
+               }"""
+body
+
 // Expression block
 println("Expression block")
 println("----------------")
