@@ -95,6 +95,7 @@ def fizzBuzzBang(n: Int): String = {
 // https://alvinalexander.com/scala/how-to-create-lazy-views-collections-scala-cookbook
 val eager = 1 to 10
 val nowItsLazy = eager.view
-val nowItsEagerAgain = eager.view.force
+val thisIsStillLazy = nowItsLazy.map(_ * 2)
+val nowItsEagerAgain = thisIsStillLazy.force
 
-nowItsLazy.map(_ * 2).force
+thisIsStillLazy.map(_ * 2).force
