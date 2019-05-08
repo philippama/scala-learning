@@ -15,13 +15,14 @@ convertMe.toString
 convertMe.toDouble
 //convertMe.toChar.toString.toDouble.toInt // gives NumberFormatException
 128.toChar
+true.toString
 
 // String formatting and splitting
 printf("String formatting and splitting%n")
 println("------------------------------")
 val debt: Double = 2.738
-val interpolated: String = s"You owe $$${debt}!"
-val interpolatedAndFormatted = f"You owe $$${debt}%.2f!"
+val interpolated: String = s"You owe $$$debt!"
+val interpolatedAndFormatted = f"You owe $$$debt%.2f!"
 val words = "one two buckle my shoe".split(" ")
 
 val derivativeId = "derivative-id"
@@ -33,6 +34,9 @@ val body = s"""{
                  "advertText": $advertText
                }"""
 body
+
+val filePath = "a/b/c/d/e"
+val directory = filePath.substring(0, filePath.lastIndexOf("/"))
 
 // Expression block
 println("Expression block")

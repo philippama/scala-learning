@@ -4,7 +4,7 @@ println("Loops")
 for (i <- 1 to 5) {print(i + ", ")}
 for (i <- 1 until 5) {print(i + ", ")}
 
-println("yield returning collection")
+println("yield returning Seq")
 val days = for (day <- 1 to 7) yield{s"Day $day:"}
 for (day <- days) print(day + ", ")
 

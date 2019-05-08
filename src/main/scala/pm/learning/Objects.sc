@@ -22,7 +22,9 @@ class Companion(param: String) {
     private val companionsThings = Companion.things
     def hello = s"Hello $param"
     def peek: String = s"I can see your ${Companion.things}"
+    val hi = "Hi!"
 }
 Companion("my friend").hello
 Companion("my friend").peek
+Companion("gfhgfhf").hi
 

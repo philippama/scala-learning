@@ -1,4 +1,4 @@
-import scala.collection.SortedMap
+import scala.collection.{SortedMap, immutable}
 // See Learning Scala ch 6
 
 "-" * 11
@@ -9,6 +9,10 @@ import scala.collection.SortedMap
 
 val exclusiveRange = 1 until 5
 val inclusiveRange = 1 to 5
+val reverseRange1 = (1 to 5).reverse
+reverseRange1.mkString(",")
+val reverseRange2 = 10 to 6 by -1
+reverseRange2.mkString(",")
 List.fill(3) (Math.random())
 
 "Building a list"
@@ -20,6 +24,7 @@ val moreColours = "white" +: colours :+ "black"
 
 "Iterating through a list"
 colours.foreach(colour => println(colour))
+colours.take(3)
 for(c <- colours) yield c.length
 colours.map(colour => colour.length)
 colours.map(_.length)
@@ -49,6 +54,7 @@ val numbersExtractedDoubledAndSummed = List("one", 1, "two", 2).collect({case el
 "----------"
 val unique = Set(10, 20, 30, 20, 20, 10)
 unique.sum
+unique.toSeq
 
 "----------"
 "-- Maps --"
@@ -62,6 +68,9 @@ val colourMap = Map("red" -> 0xFF0000, "green" -> 0xFF00, "blue" -> 0xFF)
 val cyanRGB = colourMap("green") | colourMap("blue")
 colourMap.contains("cyan")
 colourMap + ("white" -> 0xFFFFFF)
+
+"Map from sequence of tuples"
+Map(primaryColours.map(c => c -> c.length): _*)
 
 "A mutable map"
 var mutableEmptyMap = scala.collection.mutable.Map[String, String]()
@@ -88,6 +97,15 @@ def fizzBuzzBang(n: Int): String = {
     .getOrElse(n.toString)
 }
 (1 to 40).map(fizzBuzzBang).mkString(" ")
+
+
+"Collecting a list into map"
+val list: immutable.Seq[(String, String)] = List(("r", "red"), ("g", "green"), ("b", "blue"), ("b", "brown"))
+list
+  .foldLeft(Map[String, Set[String]]()) {
+    (acc, element) =>
+      acc + (element._1 -> (acc.getOrElse(element._1, Set.empty) + element._2))
+  }
 
 "--------------------------------"
 " Lazy evaluation of collections "

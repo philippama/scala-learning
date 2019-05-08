@@ -28,6 +28,9 @@ new Page("  ").asPlainText
 
 "To do enum-like things"
 "----------------------"
+// Generates about 4x the code of extending Enumeration for a
+// simple enum-like object but it does let you give it other methods.
+// See also Misc.sc.
 object WeekDay {
     sealed trait EnumVal
     case object Mon extends EnumVal
