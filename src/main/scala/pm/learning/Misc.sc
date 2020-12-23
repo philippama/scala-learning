@@ -51,6 +51,25 @@ catch {
   case e: Exception => println(s"${e.getMessage}")
 }
 
+"Option"
+"------"
+val newThing = Option("new")
+val oldThing = Option("old")
+
+def mergeOptions(first: Option[String], second: Option[String]) = {
+    first.flatMap(s1 => {
+      second
+        .map(s2 => s1 + s2)
+        .orElse(first)
+    })
+    .orElse(second)
+}
+
+val newPlusOld = mergeOptions(newThing, oldThing)
+val newPlusNone = mergeOptions(newThing, None)
+val nonePlusOld = mergeOptions(None, oldThing)
+val nonePlusNone = mergeOptions(None, None)
+
 "Other"
 "-----"
 

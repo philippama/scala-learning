@@ -21,3 +21,12 @@ for {first <- 1 to 2
 for (colour <- List("red", "green", "blue")) { println(colour) }
 
 // Also while and do/while loops not used often
+
+import java.time.LocalDate
+import java.time.Period
+val startDate = LocalDate.of(2019, 1, 1)
+val endDate = LocalDate.of(2019, 1, 5)
+val period = Period.between(startDate, endDate)
+val numDays = period.getDays
+val dates = for (i <- 0 to numDays) yield startDate.plusDays(i)
+println(dates.map(_.toString).mkString(","))

@@ -15,6 +15,9 @@ val reverseRange2 = 10 to 6 by -1
 reverseRange2.mkString(",")
 List.fill(3) (Math.random())
 
+(0 until 5)
+  .foreach(rowNum => println(s"Row $rowNum"))
+
 "Building a list"
 val primaryColours = List("red", "green", "blue")
 val secondaryColours = "yellow" :: "cyan" :: "purple" :: Nil

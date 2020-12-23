@@ -20,8 +20,8 @@ val max = five > eight match {
   case false => eight
 }
 val maxWithComment = five > eight match {
-  case true => {println(s"It's ${five}"); five}
-  case false => {println(s"${eight} of course"); eight}
+  case true => println(s"It's $five"); five
+  case false => println(s"$eight of course"); eight
 }
 val evenOrOdd = 12 match {
   case 2 | 4 | 6 | 8 => "even"
